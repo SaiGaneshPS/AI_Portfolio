@@ -9,7 +9,7 @@ import { CgFileDocument } from "react-icons/cg";
 import { HiOutlineNewspaper } from "react-icons/hi2";
 
 const Portfolio = () => {
-  const [isVisible, setIsVisible] = useState({});
+  const [ , setIsVisible] = useState({});
   const [activeTab, setActiveTab] = React.useState('all');
 
   // Animation variants

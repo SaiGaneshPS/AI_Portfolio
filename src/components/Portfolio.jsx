@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Mail, Linkedin, ExternalLink, Download, Brain, Terminal, Code, Database, BookOpen } from 'lucide-react';
+import { Github, Mail, Linkedin, ExternalLink, Download, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
+  AiFillRobot,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
 import { HiOutlineNewspaper } from "react-icons/hi2";
+import { BiNetworkChart } from "react-icons/bi";
+import { TbDeviceVisionPro } from "react-icons/tb";
+import { GiComputerFan } from "react-icons/gi";
 
 const Portfolio = () => {
   const [ , setIsVisible] = useState({});
-  const [activeTab, setActiveTab] = React.useState('all');
 
   // Animation variants
   const fadeInUp = {
@@ -159,56 +162,69 @@ const Portfolio = () => {
       {/* Hero Section */}
       <motion.section 
         id="home" 
-        className="min-h-screen flex items-center justify-center pt-16 relative"
+        className="min-h-screen flex items-center pt-16 relative"
         initial="initial"
         animate="animate"
         variants={fadeInUp}
       >
-        <div className="max-w-4xl mx-auto px-4 text-center z-10">
-          <div className="mb-6 inline-block">
-            <Brain className="w-16 h-16 mx-auto mb-4 text-emerald-400" />
-          </div>
-          <h1 className="text-5xl font-bold mb-6 text-white">
-            AI Developer & Researcher
-          </h1>
-          <p className="text-xl text-gray-400 mb-8 leading-relaxed">
-            Masters in AI student at Memorial University of Newfoundland, specializing in deep learning, 
-            computer vision, and NLP. Building intelligent systems that solve real-world problems.
-          </p>
-          <div className="flex justify-center gap-6 mb-12">
-          <a href="https://github.com/SaiGaneshPS" 
-            className="p-2 hover:bg-white/10 rounded-full transition-colors"
-            target="_blank"
-            rel="noopener noreferrer">
-            <Github size={24} />
-          </a>
-          <a href="https://www.linkedin.com/in/sai-ganesh01/" 
-            className="p-2 hover:bg-white/10 rounded-full transition-colors"
-            target="_blank"
-            rel="noopener noreferrer">
-            <Linkedin size={24} />
-          </a>
-          <a href="mailto:pss.ganesh.2001@gmail.com" 
-            className="p-2 hover:bg-white/10 rounded-full transition-colors">
-            <Mail size={24} />
-          </a>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="p-4 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm">
-              <Brain className="w-8 h-8 mx-auto mb-2 text-emerald-400" />
-              <p className="font-semibold">Deep Learning</p>
+        <div className="max-w-7xl mx-auto px-8 w-full">
+          <div className="flex justify-between items-center">
+            {/* Left content */}
+            <div className="max-w-2xl">
+              <h1 className="text-5xl font-bold mb-6 text-left text-white">
+                AI Developer & Researcher
+              </h1>
+              <p className="text-xl text-gray-400 mb-8 leading-relaxed text-left">
+                Masters in AI student at Memorial University of Newfoundland, specializing in deep learning, 
+                computer vision, and NLP. Building intelligent systems that solve real-world problems.
+              </p>
+              <div className="flex gap-6 mb-12">
+                <a href="https://github.com/SaiGaneshPS" 
+                  className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <Github size={24} />
+                </a>
+                <a href="https://www.linkedin.com/in/sai-ganesh01/" 
+                  className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <Linkedin size={24} />
+                </a>
+                <a href="mailto:pss.ganesh.2001@gmail.com" 
+                  className="p-2 hover:bg-white/10 rounded-full transition-colors">
+                  <Mail size={24} />
+                </a>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm flex flex-col items-center justify-center">
+                  <AiFillRobot className="w-8 h-8 mb-2 text-emerald-400" />
+                  <p className="font-semibold text-center">Deep Learning</p>
+                </div>
+                <div className="p-4 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm flex flex-col items-center justify-center">
+                  <BiNetworkChart className="w-8 h-8 mb-2 text-emerald-400" />
+                  <p className="font-semibold text-center">NLP</p>
+                </div>
+                <div className="p-4 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm flex flex-col items-center justify-center">
+                  <TbDeviceVisionPro className="w-8 h-8 mb-2 text-emerald-400" />
+                  <p className="font-semibold text-center">Computer Vision</p>
+                </div>
+                <div className="p-4 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm flex flex-col items-center justify-center">
+                  <GiComputerFan className="w-8 h-8 mb-2 text-emerald-400" />
+                  <p className="font-semibold text-center">ML Systems</p>
+                </div>
+              </div>
             </div>
-            <div className="p-4 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm">
-              <Terminal className="w-8 h-8 mx-auto mb-2 text-emerald-400" />
-              <p className="font-semibold">NLP</p>
-            </div>
-            <div className="p-4 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm">
-              <Code className="w-8 h-8 mx-auto mb-2 text-emerald-400" />
-              <p className="font-semibold">Computer Vision</p>
-            </div>
-            <div className="p-4 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm">
-              <Database className="w-8 h-8 mx-auto mb-2 text-emerald-400" />
-              <p className="font-semibold">ML Systems</p>
+            
+            {/* Right side - Image */}
+            <div className="hidden md:block">
+              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-emerald-500">
+                <img 
+                  src={`${process.env.PUBLIC_URL}/profile.jpeg`}
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -230,49 +246,17 @@ const Portfolio = () => {
           >
             Featured Projects
           </motion.h2>
-          
-          <motion.div 
-            variants={fadeInUp}
-            className="flex justify-center gap-4 mb-8"
-          >
-            <button
-              onClick={() => setActiveTab('all')}
-              className={`px-4 py-2 rounded-full transition-colors ${
-                activeTab === 'all' ? 'bg-emerald-500' : 'bg-white/10'
-              }`}
-            >
-              All
-            </button>
-            <button
-              onClick={() => setActiveTab('ai')}
-              className={`px-4 py-2 rounded-full transition-colors ${
-                activeTab === 'ai' ? 'bg-emerald-500' : 'bg-white/10'
-              }`}
-            >
-              AI/ML
-            </button>
-            <button
-              onClick={() => setActiveTab('computer-vision')}
-              className={`px-4 py-2 rounded-full transition-colors ${
-                activeTab === 'computer-vision' ? 'bg-emerald-500' : 'bg-white/10'
-              }`}
-            >
-              Computer Vision
-            </button>
-          </motion.div>
 
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
             variants={staggerContainer}
           >
-            {projects
-              .filter(project => activeTab === 'all' || project.category === activeTab)
-              .map((project, index) => (
-                <motion.div
+            {projects.map((project, index) => (
+              <motion.div
                 key={index}
                 variants={fadeInUp}
                 className="border border-white/10 rounded-lg p-6 bg-white/5 backdrop-blur-sm
-                           hover:border-emerald-500/50 transition-all duration-300 group"
+                         hover:border-emerald-500/50 transition-all duration-300 group"
               >
                 <h3 className="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">
                   {project.title}
@@ -400,14 +384,14 @@ const Portfolio = () => {
             className="mb-8"
           >
             <iframe
-              src="/resume.pdf"
+              src={`${process.env.PUBLIC_URL}/resume.pdf`}
               className="w-full h-[600px] rounded-lg border border-white/10"
               title="Resume Preview"
             />
           </motion.div>
           <motion.a
             variants={fadeInUp}
-            href="/resume.pdf"
+            href={`${process.env.PUBLIC_URL}/resume.pdf`}
             download
             className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-600 
                      rounded-full transition-colors font-semibold"

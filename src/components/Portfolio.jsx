@@ -11,8 +11,12 @@ import { HiOutlineNewspaper } from "react-icons/hi2";
 import { BiNetworkChart } from "react-icons/bi";
 import { TbDeviceVisionPro } from "react-icons/tb";
 import { GiComputerFan } from "react-icons/gi";
+import { Menu, X } from 'lucide-react';
+import StarBackground from './StarBackground';
 
 const Portfolio = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const [ , setIsVisible] = useState({});
 
   // Animation variants
@@ -100,91 +104,151 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Subtle Animated Background */}
+      {/* Add StarBackground component */}
+      <StarBackground />
+      
+      {/* Subtle gradient overlay */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-900/30 via-black to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/80 to-black"></div>
       </div>
 
-      {/* Header */}
+      {/* Modified Header/Nav */}
       <nav className="fixed w-full py-2 bg-transparent backdrop-blur-sm border-b border-white/20 z-50">
-        <div className="max-w-7xl mx-auto px-0 py-2 flex justify-between items-center">
-          {/* Name Section */}
-          <span className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-800 tracking-wider transform transition-all duration-500 leading-tight ease-in-out hover:scale-110 animate-gradient">
-            Sai Ganesh Pala Shanmugam
-          </span>
-          {/* Links Section */}
-          <div className="flex gap-8">
-            <a href="#home" className="group flex items-center text-white text-lg hover:text-emerald-400 transition-colors">
-              <AiOutlineHome className="mr-2 group-hover:text-emerald-400 text-3xl" style={{ marginBottom: "2px" }} />
-              Home
-            </a>
-            <a href="#projects" className="group flex items-center text-white text-lg hover:text-emerald-400 transition-colors">
-              <AiOutlineFundProjectionScreen className="mr-2 group-hover:text-emerald-400 text-3xl" style={{ marginBottom: "2px" }} />
-              Projects
-            </a>
-            <a href="#publications" className="group flex items-center text-white text-lg hover:text-emerald-400 transition-colors">
-              <HiOutlineNewspaper className="mr-2 group-hover:text-emerald-400 text-3xl" style={{ marginBottom: "2px" }} />
-              Publications
-            </a>
-            <a href="#resume" className="group flex items-center text-white text-lg hover:text-emerald-400 transition-colors">
-              <CgFileDocument className="mr-2 group-hover:text-emerald-400 text-3xl" style={{ marginBottom: "2px" }} />
-              Resume
-            </a>
+        <div className="max-w-7xl mx-auto px-4 py-2">
+          {/* Main header row */}
+          <div className="flex justify-between items-center">
+            {/* Name Section - Responsive text size */}
+            <span className="text-xl sm:text-2xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-800 tracking-wider transform transition-all duration-500 leading-tight ease-in-out hover:scale-110 animate-gradient">
+            <span className="block md:inline">Sai Ganesh </span>
+            <span className="block md:inline">Pala Shanmugam</span>
+            </span>
+
+            {/* Desktop Navigation - Hidden on mobile */}
+            <div className="hidden md:flex gap-8">
+              <a href="#home" className="group flex items-center text-white text-lg hover:text-emerald-400 transition-colors">
+                <AiOutlineHome className="mr-2 group-hover:text-emerald-400 text-3xl" style={{ marginBottom: "2px" }} />
+                Home
+              </a>
+              <a href="#projects" className="group flex items-center text-white text-lg hover:text-emerald-400 transition-colors">
+                <AiOutlineFundProjectionScreen className="mr-2 group-hover:text-emerald-400 text-3xl" style={{ marginBottom: "2px" }} />
+                Projects
+              </a>
+              <a href="#publications" className="group flex items-center text-white text-lg hover:text-emerald-400 transition-colors">
+                <HiOutlineNewspaper className="mr-2 group-hover:text-emerald-400 text-3xl" style={{ marginBottom: "2px" }} />
+                Publications
+              </a>
+              <a href="#resume" className="group flex items-center text-white text-lg hover:text-emerald-400 transition-colors">
+                <CgFileDocument className="mr-2 group-hover:text-emerald-400 text-3xl" style={{ marginBottom: "2px" }} />
+                Resume
+              </a>
+            </div>
+
+            {/* Mobile Menu Button - Visible only on mobile */}
+            <button 
+              className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? (
+                <X size={24} className="text-emerald-400" />
+              ) : (
+                <Menu size={24} className="text-emerald-400" />
+              )}
+            </button>
           </div>
+
+          {/* Mobile Navigation Menu - Sliding drawer from right */}
+          <div 
+            className={`md:hidden fixed top-0 right-0 h-full w-64 bg-black/95 backdrop-blur-md transform transition-transform duration-300 ease-in-out z-50 ${
+              isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
+          >
+            {/* Close button for mobile menu */}
+            <button 
+              className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-lg"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <X size={24} className="text-emerald-400" />
+            </button>
+
+            {/* Mobile menu items */}
+            <div className="flex flex-col pt-16 px-4 space-y-6">
+              <a 
+                href="#home" 
+                className="flex items-center text-white text-lg hover:text-emerald-400 transition-colors p-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <AiOutlineHome className="mr-3 text-2xl" />
+                Home
+              </a>
+              <a 
+                href="#projects" 
+                className="flex items-center text-white text-lg hover:text-emerald-400 transition-colors p-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <AiOutlineFundProjectionScreen className="mr-3 text-2xl" />
+                Projects
+              </a>
+              <a 
+                href="#publications" 
+                className="flex items-center text-white text-lg hover:text-emerald-400 transition-colors p-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <HiOutlineNewspaper className="mr-3 text-2xl" />
+                Publications
+              </a>
+              <a 
+                href="#resume" 
+                className="flex items-center text-white text-lg hover:text-emerald-400 transition-colors p-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <CgFileDocument className="mr-3 text-2xl" />
+                Resume
+              </a>
+            </div>
+          </div>
+
+          {/* Overlay for mobile menu */}
+          {isMobileMenuOpen && (
+            <div 
+              className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+          )}
         </div>
       </nav>
-
-
-      <style jsx>{`
-        /* Keyframes for gradient animation */
-        @keyframes gradientMove {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-
-        .animate-gradient {
-          background: linear-gradient(to right,rgb(16, 108, 74),rgb(8, 255, 226),rgb(81, 182, 114));
-          background-size: 200% 200%;
-          background-position: 0% 50%;
-          animation: gradientMove 2s ease infinite;
-          -webkit-background-clip: text;
-          color: transparent;
-        }
-      `}</style>
 
       {/* Hero Section */}
       <motion.section 
         id="home" 
-        className="min-h-screen flex items-center pt-16 relative"
-        initial="initial"
-        animate="animate"
-        variants={fadeInUp}
+        className="min-h-screen flex items-center pt-24 sm:pt-16 relative"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="max-w-7xl mx-auto px-8 w-full">
-          <div className="flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full">
+          <div className="flex flex-col-reverse sm:flex-row justify-between items-center gap-8">
             {/* Left content */}
-            <div className="max-w-2xl">
-              <h1 className="text-5xl font-bold mb-6 text-left text-white">
+            <div className="max-w-2xl w-full">
+              <h1 className="text-3xl sm:text-5xl font-bold mb-6 text-center sm:text-left text-white">
                 AI Developer & Researcher
               </h1>
-              <p className="text-xl text-gray-400 mb-8 leading-relaxed text-left">
+              <p className="text-lg sm:text-xl text-gray-400 mb-8 leading-relaxed text-center sm:text-left">
                 Masters in AI student at Memorial University of Newfoundland, specializing in deep learning, 
                 computer vision, and NLP. Building intelligent systems that solve real-world problems.
               </p>
-              <div className="flex gap-6 mb-12">
-                <a href="https://github.com/SaiGaneshPS" 
+              {/* Social links - Centered on mobile */}
+              <div className="flex gap-6 mb-12 justify-center sm:justify-start">
+                <motion.a
+                  href="https://github.com/SaiGaneshPS"
                   className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   <Github size={24} />
-                </a>
+                </motion.a>
                 <a href="https://www.linkedin.com/in/sai-ganesh01/" 
                   className="p-2 hover:bg-white/10 rounded-full transition-colors"
                   target="_blank"
@@ -196,7 +260,8 @@ const Portfolio = () => {
                   <Mail size={24} />
                 </a>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              {/* Skills grid - 2 columns on mobile, 4 on desktop */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
                 <div className="p-4 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm flex flex-col items-center justify-center">
                   <AiFillRobot className="w-8 h-8 mb-2 text-emerald-400" />
                   <p className="font-semibold text-center">Deep Learning</p>
@@ -217,14 +282,12 @@ const Portfolio = () => {
             </div>
             
             {/* Right side - Image */}
-            <div className="hidden md:block">
-              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-emerald-500">
-                <img 
-                  src={`${process.env.PUBLIC_URL}/profile.jpeg`}
-                  alt="Profile"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="w-48 h-48 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-emerald-500">
+              <img 
+                src={`${process.env.PUBLIC_URL}/profile.jpeg`}
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -233,22 +296,22 @@ const Portfolio = () => {
       {/* Projects Section */}
       <motion.section 
         id="projects" 
-        className="py-20 relative"
+        className="py-12 sm:py-20 relative px-4"
         variants={staggerContainer}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
       >
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
           <motion.h2 
             variants={fadeInUp}
-            className="text-3xl font-bold mb-12 text-center text-emerald-400"
+            className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-emerald-400"
           >
             Featured Projects
           </motion.h2>
 
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8"
             variants={staggerContainer}
           >
             {projects.map((project, index) => (
@@ -293,16 +356,16 @@ const Portfolio = () => {
       {/* Publications Section */}
       <motion.section 
         id="publications" 
-        className="py-20 relative bg-white/5"
+        className="py-12 sm:py-20 relative bg-white/5 px-4"
         variants={staggerContainer}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
       >
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
           <motion.h2 
             variants={fadeInUp}
-            className="text-3xl font-bold mb-12 text-center text-emerald-400"
+            className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-emerald-400"
           >
             Publications
           </motion.h2>
@@ -341,20 +404,25 @@ const Portfolio = () => {
       </motion.section>
 
       {/* Skills Section */}
-      <section className="py-20 relative bg-white/5">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-emerald-500 to-green-500 bg-clip-text text-transparent">
+      <section className="py-12 sm:py-20 relative bg-white/5 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center bg-gradient-to-r from-emerald-500 to-green-500 bg-clip-text text-transparent">
             Technical Skills
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {Object.entries(skills).map(([category, skillList]) => (
               <div key={category} className="border border-white/10 rounded-lg p-6 bg-black/50">
                 <h3 className="text-xl font-bold mb-4 capitalize">{category}</h3>
                 <div className="flex flex-wrap gap-2">
                   {skillList.map((skill, index) => (
-                    <span key={index} className="bg-white/10 px-3 py-1 rounded-full text-sm">
+                    <motion.span
+                      key={index}
+                      className="bg-white/10 px-3 py-1 rounded-full text-sm hover:bg-emerald-500/20"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
                       {skill}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
@@ -366,16 +434,16 @@ const Portfolio = () => {
       {/* Resume Section */}
       <motion.section 
         id="resume" 
-        className="py-20 relative"
+        className="py-12 sm:py-20 relative px-4"
         variants={staggerContainer}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
       >
-        <div className="max-w-6xl mx-auto px-4 text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <motion.h2 
             variants={fadeInUp}
-            className="text-3xl font-bold mb-12 text-emerald-400"
+            className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-emerald-400"
           >
             Resume
           </motion.h2>
@@ -385,7 +453,7 @@ const Portfolio = () => {
           >
             <iframe
               src={`${process.env.PUBLIC_URL}/resume.pdf`}
-              className="w-full h-[600px] rounded-lg border border-white/10"
+              className="w-full h-[400px] sm:h-[600px] rounded-lg border border-white/10"
               title="Resume Preview"
             />
           </motion.div>
@@ -406,3 +474,4 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+

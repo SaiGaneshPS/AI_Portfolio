@@ -13,6 +13,11 @@ import { TbDeviceVisionPro } from "react-icons/tb";
 import { GiComputerFan } from "react-icons/gi";
 import { Menu, X } from 'lucide-react';
 import StarBackground from './StarBackground';
+import { 
+  BsRocketTakeoff,
+  BsBarChartFill 
+} from "react-icons/bs";
+import { PiBrainBold } from "react-icons/pi";
 
 const Portfolio = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,6 +39,23 @@ const Portfolio = () => {
     }
   };
 
+  const FeatureCard = ({ icon, title, description }) => {
+    return (
+      <div className="p-6 rounded-xl border border-white/10 bg-black/50 backdrop-blur-sm
+                 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1">
+        <div className="text-emerald-400 text-4xl mb-4 transition-transform duration-200 hover:scale-110">
+          {icon}
+        </div>
+        <h3 className="text-xl font-bold mb-3 text-white">
+          {title}
+        </h3>
+        <p className="text-gray-400 leading-relaxed">
+          {description}
+        </p>
+      </div>
+    );
+  };
+  
   // Projects data with your actual GitHub links
   const projects = [
     {
@@ -114,14 +136,16 @@ const Portfolio = () => {
 
       {/* Modified Header/Nav */}
       <nav className="fixed w-full py-2 bg-transparent backdrop-blur-sm border-b border-white/20 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-2">
+        <div className="max-w-7xl mx-auto px-4 py-1">
           {/* Main header row */}
           <div className="flex justify-between items-center">
             {/* Name Section - Responsive text size */}
-            <span className="text-xl sm:text-2xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-800 tracking-wider transform transition-all duration-500 leading-tight ease-in-out hover:scale-110 animate-gradient">
-            <span className="block md:inline">Sai Ganesh </span>
-            <span className="block md:inline">Pala Shanmugam</span>
-            </span>
+            <div className="h-auto min-h-[2rem] flex items-center">
+            <h1 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-400 tracking-wider transform transition-all duration-500 leading-relaxed hover:scale-110 animate-gradient py-2">
+              <span className="inline-block">Sai Ganesh</span>{" "}
+              <span className="inline-block">Pala Shanmugam</span>
+            </h1>
+            </div>
 
             {/* Desktop Navigation - Hidden on mobile */}
             <div className="hidden md:flex gap-8">
@@ -234,9 +258,12 @@ const Portfolio = () => {
                 AI Developer & Researcher
               </h1>
               <p className="text-lg sm:text-xl text-gray-400 mb-8 leading-relaxed text-center sm:text-left">
-                Masters in AI student at Memorial University of Newfoundland, specializing in deep learning, 
-                computer vision, and NLP. Building intelligent systems that solve real-world problems.
-              </p>
+  Recent Master's graduate in Artificial Intelligence, building upon a specialized Bachelor's in AI. 
+  Combining academic excellence with practical experience through research publications and internship 
+  experience in computational linguistics. Strong foundation in computer vision, NLP, and deep learning, 
+  with a particular talent for troubleshooting complex ML systems. Ready to transition from academic 
+  success to creating impactful AI solutions in industry.
+</p>
               {/* Social links - Centered on mobile */}
               <div className="flex gap-6 mb-12 justify-center sm:justify-start">
                 <motion.a
@@ -292,6 +319,37 @@ const Portfolio = () => {
           </div>
         </div>
       </motion.section>
+      
+      <section className="py-20 relative bg-gradient-to-b from-black/50 to-transparent">
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-500">
+        Why Work With Me
+      </h2>
+      <p className="text-gray-400 max-w-2xl mx-auto">
+        Combining technical expertise with a proven track record of delivering impactful AI solutions
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      <FeatureCard
+        icon={<PiBrainBold />}
+        title="End-to-End AI Solutions"
+        description="Expertise in developing and deploying production-ready ML systems that scale. Proven track record of converting research into real-world applications."
+      />
+      <FeatureCard
+        icon={<BsRocketTakeoff />}
+        title="Research & Innovation"
+        description="Active researcher with publications in international conferences. Constantly exploring and implementing cutting-edge AI technologies."
+      />
+      <FeatureCard
+        icon={<BsBarChartFill />}
+        title="Impact-Driven Development"
+        description="Focus on creating AI solutions that deliver measurable business value. Interest of improving efficiency and accuracy in production systems."
+      />
+    </div>
+  </div>
+</section>
 
       {/* Projects Section */}
       <motion.section 

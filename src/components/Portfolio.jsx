@@ -141,9 +141,9 @@ const Portfolio = () => {
           <div className="flex justify-between items-center">
             {/* Name Section - Responsive text size */}
             <div className="h-auto min-h-[2rem] flex items-center">
-            <h1 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-400 tracking-wider transform transition-all duration-500 leading-relaxed hover:scale-110 animate-gradient py-2">
-              <span className="inline-block">Sai Ganesh</span>{" "}
-              <span className="inline-block">Pala Shanmugam</span>
+            <h1 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-indigo-700 to-purple-500 tracking-wider transform transition-all duration-500 hover:scale-110 animate-gradient" style={{ lineHeight: '1.4', textRendering: 'geometricPrecision' }}>
+              <span className="inline-block" style={{ marginBottom: '0.1em' }}>Sai Ganesh</span>{" "}
+              <span className="inline-block" style={{ marginBottom: '0.1em' }}>Pala Shanmugam</span>
             </h1>
             </div>
 
@@ -323,7 +323,7 @@ const Portfolio = () => {
       <section className="py-20 relative bg-gradient-to-b from-black/50 to-transparent">
   <div className="max-w-6xl mx-auto px-4">
     <div className="text-center mb-12">
-      <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-500">
+      <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-400 to-cyan-500 animate-gradient py-1">
         Why Work With Me
       </h2>
       <p className="text-gray-400 max-w-2xl mx-auto">
@@ -363,7 +363,7 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto">
           <motion.h2 
             variants={fadeInUp}
-            className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-emerald-400"
+            className="text-2xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-400 to-cyan-500 tracking-wider transform transition-all duration-500 animate-gradient"
           >
             Featured Projects
           </motion.h2>
@@ -423,7 +423,7 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto">
           <motion.h2 
             variants={fadeInUp}
-            className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-emerald-400"
+            className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-2xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r bg-gradient-to-r from-emerald-300 via-teal-400 to-cyan-500 tracking-wider transform transition-all duration-500 animate-gradient"
           >
             Publications
           </motion.h2>
@@ -464,7 +464,7 @@ const Portfolio = () => {
       {/* Skills Section */}
       <section className="py-12 sm:py-20 relative bg-white/5 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center bg-gradient-to-r from-emerald-500 to-green-500 bg-clip-text text-transparent">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-2xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-400 to-cyan-500 tracking-wider transform transition-all duration-500 animate-gradient">
             Technical Skills
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -501,7 +501,7 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto text-center">
           <motion.h2 
             variants={fadeInUp}
-            className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-emerald-400"
+            className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-2xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-400 to-cyan-500 tracking-wider transform transition-all duration-500 animate-gradient"
           >
             Resume
           </motion.h2>

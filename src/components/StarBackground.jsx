@@ -20,8 +20,8 @@ const StarBackground = () => {
 
     // Star properties
     const stars = [];
-    const numStars = Math.floor((canvas.width * canvas.height) / 1000); // Responsive star count
-    const maxStarSize = 2;
+    const numStars = Math.floor((canvas.width * canvas.height) / 2000); // Responsive star count
+    const maxStarSize = 3;
 
     // Initialize stars
     for (let i = 0; i < numStars; i++) {
@@ -29,7 +29,7 @@ const StarBackground = () => {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         size: Math.random() * maxStarSize,
-        speed: Math.random() * 0.2,
+        speed: Math.random() * 0.4,
         brightness: Math.random(),
         angle: Math.random() * Math.PI * 2
       });

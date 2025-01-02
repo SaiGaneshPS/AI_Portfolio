@@ -76,5 +76,5 @@ code {
 
 .animate-gradient {
   background-size: 200% auto;
-  animation: gradient 3s ease infinite;
+  animation: gradient 2s ease infinite;
 }

@@ -68,11 +68,11 @@ const Portfolio = () => {
     },
     {
       title: "Skew Detection in Receipts",
-      description: "Comprehensive comparison of state-of-the-art deep learning models for skew detection in receipts by utilizing a custom datasets.",
+      description: "Comprehensive comparison of ten state-of-the-art deep learning models for skew detection in receipts by creating a custom dataset that handles five different resolutions.",
       tech: ["ConvNext", "Swin Transformer", "ViT", "OpenCV"],
       category: "computer-vision",
       metrics: ["5 Resolution Types", "Multiple SOTA Models"],
-      link: "#"
+      link: "https://github.com/SaiGaneshPS/Skew_Detection_OCR/tree/main"
     },
     {
       title: "PCG Classification Architecture",
@@ -81,6 +81,14 @@ const Portfolio = () => {
       category: "ai",
       metrics: ["92.7% Accuracy", "Improved Performance"],
       link: "https://github.com/SaiGaneshPS/Deep-Learning-Architecture-for-Phonocardiogram-Signal-Classification-using-Spectrogram"
+    },
+    {
+      title: "Machine Learning-Based Task Tracker",
+      description: "Full-stack app for managing tasks, built with React, Node.js, secured with JWT auth, Rasa NLU, and AWS RDS. Containerized with Docker for smooth deployment.",
+      tech: ["React", "Node.js", "JWT", "Rasa", "AWS RDS", "Docker"],
+      category: "ai",
+      metrics: [],
+      link: "https://github.com/SaiGaneshPS/AI_Driven_Task_Tracker"
     }
   ];
 

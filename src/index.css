@@ -78,3 +78,16 @@ code {
   background-size: 200% auto;
   animation: gradient 2s ease infinite;
 }
+
+/* Add to your CSS */
+.prose pre {
+  background: #282a36 !important;
+  padding: 1rem !important;
+  margin: 1.5rem 0 !important;
+  border-radius: 0.5rem !important;
+}
+
+.prose code {
+  font-size: 0.875rem !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}

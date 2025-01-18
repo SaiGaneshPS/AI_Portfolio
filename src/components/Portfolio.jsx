@@ -18,6 +18,7 @@ import {
   BsBarChartFill 
 } from "react-icons/bs";
 import { PiBrainBold } from "react-icons/pi";
+import { Link } from 'react-router-dom';
 
 const Portfolio = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -157,10 +158,10 @@ const Portfolio = () => {
 
             {/* Desktop Navigation - Hidden on mobile */}
             <div className="hidden md:flex gap-8">
-              <a href="#home" className="group flex items-center text-white text-lg hover:text-emerald-400 transition-colors">
-                <AiOutlineHome className="mr-2 group-hover:text-emerald-400 text-3xl" style={{ marginBottom: "2px" }} />
-                Home
-              </a>
+            <Link to="/blog" className="group flex items-center text-white text-lg hover:text-emerald-400 transition-colors">
+              <AiOutlineHome className="mr-2 group-hover:text-emerald-400 text-3xl" style={{ marginBottom: "2px" }} />
+              Blog
+              </Link>
               <a href="#projects" className="group flex items-center text-white text-lg hover:text-emerald-400 transition-colors">
                 <AiOutlineFundProjectionScreen className="mr-2 group-hover:text-emerald-400 text-3xl" style={{ marginBottom: "2px" }} />
                 Projects
